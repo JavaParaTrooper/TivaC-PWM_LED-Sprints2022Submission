@@ -1,14 +1,30 @@
+/**********************************************************************************************************************
+ *  FILE DESCRIPTION
+ *  -----------------------------------------------------------------------------------------------------------------*/
+ /**        \file  gpio.c
+ *        \brief  
+						Initialize GPIO Ports by setting direction, Mode of Port F
+ *      \details  
+ *				Last Version: 0.1 --- Date: 16/09/2022
+ *
+ *********************************************************************************************************************/
+
+
 #include "gpio.h"
 
 
 void GpioInit()
 {
- SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5;
- GPIO_PORTF_AHB_DIR_R   = 0x11111111U;
- GPIO_PORTF_AHB_AFSEL_R = 0x11111111U;
- GPIO_PORTF_AHB_DEN_R		= 0x11111111U;
+ SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5; //Enable Port F
+ GPIO_PORTF_AHB_DIR_R   = 0x11111111U;	  //Set Dir Output
+ GPIO_PORTF_AHB_AFSEL_R = 0x11111111U;	  //Set Mode
+ GPIO_PORTF_AHB_DEN_R	= 0x11111111U;	  //Enable Digital 
 	
 	//GPIO_PORTF_DATA_R |= 0x02;
 	
 	
 }
+
+/**********************************************************************************************************************
+ *  END OF FILE: gpio.c
+ *********************************************************************************************************************/
